@@ -5,6 +5,8 @@
 #[cfg(feature = "bench")]
 extern crate test;
 
+use std::prelude::v1::*;
+
 use encoding_rs;
 use matches::matches;
 use serde_json::{self, json, Map, Value};
@@ -66,14 +68,14 @@ fn normalize(json: &mut Value) {
 fn assert_json_eq(results: Value, mut expected: Value, message: &str) {
     normalize(&mut expected);
     if !almost_equals(&results, &expected) {
-        println!(
-            "{}",
-            ::difference::Changeset::new(
-                &serde_json::to_string_pretty(&results).unwrap(),
-                &serde_json::to_string_pretty(&expected).unwrap(),
-                "\n",
-            )
-        );
+//        println!(
+//            "{}",
+//            ::difference::Changeset::new(
+//                &serde_json::to_string_pretty(&results).unwrap(),
+//                &serde_json::to_string_pretty(&expected).unwrap(),
+//                "\n",
+//            )
+//        );
         panic!("{}", message)
     }
 }
@@ -282,7 +284,7 @@ fn outer_block_end_consumed() {
             .expect_function_matching("calc")
             .map_err(Into::<ParseError<()>>::into))
         .is_ok());
-    println!("{:?}", input.position());
+//    println!("{:?}", input.position());
     assert!(input.next().is_err());
 }
 

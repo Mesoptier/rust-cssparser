@@ -67,6 +67,9 @@ fn parse_border_spacing(_context: &ParserContext, input: &mut Parser)
 
 #![recursion_limit = "200"] // For color::parse_color_keyword
 
+#![cfg_attr(not(feature = "std"), no_std)]
+extern crate no_std_compat as std;
+
 pub use crate::color::{
     parse_color_keyword, AngleOrNumber, Color, ColorComponentParser, NumberOrPercentage, RGBA,
 };

@@ -22,11 +22,12 @@ encoding_rs = "0.8"
 [dependencies]
 cssparser-macros = {path = "./macros", version = "0.6"}
 dtoa-short = "0.3"
-itoa = "0.4"
+itoa = { version = "0.4", default-features = false }
 matches = "0.1"
 phf = {version = "0.8", features = ["macros"]}
 serde = {version = "1.0", optional = true}
 smallvec = "1.0"
+no-std-compat = { version = "0.2.0", features = ["alloc"] }
 
 [build-dependencies]
 syn = { version = "1", features = ["extra-traits", "fold", "full"] }
@@ -34,6 +35,8 @@ quote = "1"
 proc-macro2 = "1"
 
 [features]
+default = []
+std = ["no-std-compat/std", "itoa/std"]
 bench = []
 dummy_match_byte = []
 

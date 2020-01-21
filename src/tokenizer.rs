@@ -4,6 +4,8 @@
 
 // https://drafts.csswg.org/css-syntax/#tokenization
 
+use std::prelude::v1::*;
+
 use self::Token::*;
 use crate::cow_rc_str::CowRcStr;
 use crate::parser::ParserState;
